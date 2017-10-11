@@ -4,13 +4,7 @@ import {  deleteTodo} from '../actions'
 
 let DeleteTodo = ({dispatch}) => {
     return(
-        <div>
-            <form>
-                <button type="submit">
-                    Delete
-                </button>
-            </form>
-        </div>
+        <button onClick={() => {dispatch(deleteTodo())}}>Delete</button>
     )
 };
 
