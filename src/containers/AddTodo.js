@@ -18,8 +18,8 @@ let AddTodo = ({ dispatch }) => {
                 }}
             >
                 <input
-                    ref={node => {
-                        input = node
+                    ref={text => {
+                        input = text
                     }}
                 />
                 <button type="submit">
