@@ -16,6 +16,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 };
 
+// vue = view
+
 const FilterLink = connect(
     mapStateToProps,
     mapDispatchToProps

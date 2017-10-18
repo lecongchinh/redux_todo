@@ -27,10 +27,9 @@ export const deleteTodo = () => {
     }
 };
 
-export const editTodo = (index, text) => {
+export const editTodo = text => {
     return {
         type: 'EDIT_TODO',
-        index,
         text
     }
 };
