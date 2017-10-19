@@ -29,11 +29,7 @@ let AddTodo = ({ dispatch }) => {
                     }}
                 />
                 <button type="submit">
-                    <Router>
-                        <div>
-                            <Link to = "/add-todo">Add todo</Link>
-                        </div>
-                    </Router>
+                    Add Todo
                 </button>
             </form>
         </div>
