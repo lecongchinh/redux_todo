@@ -2,6 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
+
 let AddTodo = ({ dispatch }) => {
     let input;
 
@@ -23,7 +29,11 @@ let AddTodo = ({ dispatch }) => {
                     }}
                 />
                 <button type="submit">
-                    Add Todo
+                    <Router>
+                        <div>
+                            <Link to = "/add-todo">Add todo</Link>
+                        </div>
+                    </Router>
                 </button>
             </form>
         </div>
