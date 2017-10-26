@@ -2,10 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick }) => (
+const TodoList = ({todos, onDeleteClick, onEditClick}) => (
     <ul>
         {todos.map(todo => (
-            <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)}/>
+            <Todo onDeleteClick={() => onDeleteClick(todo.id)}
+
+                  onEditClick = {() => {
+                      let text = prompt('Change text', todo.text);
+                      onEditClick(text)
+                  }}
+
+                  key={todo.id} {...todo}/>
         ))}
     </ul>
 );
@@ -18,8 +25,6 @@ TodoList.propTypes = {
             text: PropTypes.string.isRequired
         }).isRequired
     ).isRequired,
-    onTodoClick: PropTypes.func.isRequired,
-    onDoubleTodoClick: PropTypes.func.isRequired
 };
 
 export default TodoList

@@ -14,22 +14,17 @@ export const setVisibilityFilter = filter => {
     }
 };
 
-export const toggleTodo = id => {
+export const deleteTodo = id => {
     return {
-        type: 'TOGGLE_TODO',
+        type: 'DELETE_TODO',
         id
     }
 };
 
-export const deleteTodo = () => {
-    return {
-        type: 'DELETE_TODO'
-    }
-};
-
-export const editTodo = text => {
+export const editTodo = (id, text) => {
     return {
         type: 'EDIT_TODO',
+        id,
         text
     }
 };

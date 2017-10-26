@@ -2,11 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
 
 let AddTodo = ({ dispatch }) => {
     let input;
