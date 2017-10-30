@@ -14,7 +14,8 @@ const todos = (state = [], action) => {
             return state.filter(todo => todo.id !== action.id);
 
         case 'EDIT_TODO':
-            return state.map((todo) => (todo.id === action.id) ? {...todo, text: 1} : todo);
+            // console.log(action);
+            return state.map((todo) => (todo.id === action.id) ? {...todo, text: action.text} : todo);
 
         default:
             return state

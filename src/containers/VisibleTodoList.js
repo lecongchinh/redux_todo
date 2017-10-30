@@ -25,6 +25,11 @@ const mapStateToProps = state => {
 //     }
 // };
 
+
+// trong 1 cục data từ store(có rất nhiều data khac' nhau.but e chi muon lay data ma component e muon lay thoi thi em se truyen vao
+// component do thong qua mapStateToProps)
+
+
 const mapDispatchToProps = {
     onDeleteClick: deleteTodo,
     onEditClick: editTodo

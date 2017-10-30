@@ -1,15 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
+import axios from 'axios'
 
-const TodoList = ({todos, onDeleteClick, onEditClick}) => (
+function deleteTodoDatabase(id) {
+    axios({
+        method: 'delete',
+        url: 'http://localhost:8000/delete-todo/' + `${id}`,
+    })
+}
+
+
+const TodoList = ({todos, onDeleteClick, onEditClick,dataDinhceo}) => (
     <ul>
         {todos.map(todo => (
-            <Todo onDeleteClick={() => onDeleteClick(todo.id)}
+            <Todo
+                onDeleteClick={() => {
+                    onDeleteClick(todo.id);
+                    deleteTodoDatabase(todo.id)
+                }}
 
                   onEditClick = {() => {
                       let text = prompt('Change text', todo.text);
-                      onEditClick(text)
+                      onEditClick(todo.id,text);
                   }}
 
                   key={todo.id} {...todo}/>
