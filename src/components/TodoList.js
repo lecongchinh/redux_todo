@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 import axios from 'axios'
+import {getTodo} from '../actions'
 
 function deleteTodoDatabase(id) {
     axios({
@@ -10,8 +11,17 @@ function deleteTodoDatabase(id) {
     })
 }
 
+function componentDidMount() {
+    let {dispatch} = this.props;
+    axios({
+        method: 'get',
+        url: 'http://localhost:8000'
+    })
+    .then((res) => res.data)
+    .then((datas) => dispatch(getTodo(datas.map(data => this.data))))
+}
 
-const TodoList = ({todos, onDeleteClick, onEditClick,dataDinhceo}) => (
+const TodoList = ({todos, onDeleteClick, onEditClick}) => (
     <ul>
         {todos.map(todo => (
             <Todo

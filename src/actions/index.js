@@ -28,3 +28,10 @@ export const editTodo = (id, text) => {
         text
     }
 };
+
+export const getTodo = (index) => {
+    return {
+        type: 'DISPLAY_TODO',
+        index
+    }
+};
