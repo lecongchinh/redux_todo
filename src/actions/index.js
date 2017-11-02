@@ -7,13 +7,6 @@ export const addTodo = text => {
     }
 };
 
-export const setVisibilityFilter = filter => {
-    return {
-        type: 'SET_VISIBILITY_FILTER',
-        filter
-    }
-};
-
 export const deleteTodo = id => {
     return {
         type: 'DELETE_TODO',
@@ -29,9 +22,9 @@ export const editTodo = (id, text) => {
     }
 };
 
-export const getTodo = (index) => {
+export const addToStore = (data) => {
     return {
-        type: 'DISPLAY_TODO',
-        index
+        type: 'ADD_TO_STORE',
+        data
     }
 };

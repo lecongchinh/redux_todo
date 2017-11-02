@@ -6,9 +6,9 @@ import todoApp from './reducers'
 import App from './components/App';
 
 let store = createStore(
-    todoApp,
+    todoApp
 );
-// console.log(store.getState());
+console.log(store.getState());
 
 render(
     <Provider store={store}>

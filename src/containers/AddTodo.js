@@ -17,7 +17,7 @@ let AddTodo = ({ dispatch }) => {
     }
 
     return (
-        <div>
+        <div className="add-todo">
             <form
                 onSubmit={e => {
                     e.preventDefault();
@@ -28,14 +28,19 @@ let AddTodo = ({ dispatch }) => {
                     input.value = ''
                 }}
             >
-                <input
-                    ref={text => {
-                        input = text
-                    }}
-                />
-                    <button type="submit" onClick={addIntoDatabase}>
-                            Add Todo
+                <div className="col-md-8">
+                    <input placeholder="Moi ban nhap: " className="form-control"
+                           ref={text => {
+                               input = text
+                           }}
+                    />
+                </div>
+                <div className="col-md-4">
+                    <button className="btn btn-success" type="submit" onClick={addIntoDatabase}>
+                        Add Todo
                     </button>
+                </div>
+                <div className="clearfix"></div>
             </form>
 
         </div>

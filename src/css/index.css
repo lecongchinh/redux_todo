@@ -1,0 +1,22 @@
+.todo-element ul {
+    list-style-type: none;
+}
+
+.todo-element li {
+    margin-top: 15px;
+}
+
+.todo {
+    margin-top: 20px;
+}
+
+ul {
+    padding: 0;
+}
+
+.todo .col-md-8 {
+    padding: 0;
+}
+.todo .col-md-4 {
+    padding: 0;
+}

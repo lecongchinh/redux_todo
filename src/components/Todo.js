@@ -1,19 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import '../css/index.css'
 
-const Todo = ({onDeleteClick, onEditClick, text }) => (
+const Todo = ({onDeleteClick, onEditClick, element }) => (
     <div>
         <li>
-            {text}
-            <button onClick = {onDeleteClick}>Delete</button>
-            <button onClick = {onEditClick}>Edit</button>
+            <div className="todo-text">{element}</div>
+            <div>
+                <button className="btn btn-danger" onClick = {onDeleteClick}>Delete</button>
+                <button className="btn btn-warning" onClick = {onEditClick}>Edit</button>
+            </div>
 
         </li>
     </div>
 );
 
-Todo.propTypes = {
-    text: PropTypes.string.isRequired
-};
+// Todo.propTypes = {
+//     element: PropTypes.string.isRequired
+// };
 
 export default Todo
