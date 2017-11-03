@@ -25,6 +25,7 @@ let AddTodo = ({ dispatch }) => {
                         return
                     }
                     dispatch(addTodo(input.value));
+                    addIntoDatabase();
                     input.value = ''
                 }}
             >
@@ -36,7 +37,7 @@ let AddTodo = ({ dispatch }) => {
                     />
                 </div>
                 <div className="col-md-4">
-                    <button className="btn btn-success" type="submit" onClick={addIntoDatabase}>
+                    <button className="btn btn-success" type="submit">
                         Add Todo
                     </button>
                 </div>

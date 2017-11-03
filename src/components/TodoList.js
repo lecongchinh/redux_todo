@@ -5,6 +5,24 @@ import '../css/index.css'
 
 class TodoList extends React.Component {
 
+    editTodoDatabase = (id, text) => {
+        axios({
+            method: 'put',
+            url: 'http://localhost:8000/edit',
+            data: {
+                id: id,
+                element: text
+            }
+        })
+    };
+
+    deleteTodoDatabase = (id) => {
+        axios({
+            method: 'delete',
+            url: 'http://localhost:8000/delete-todo/' + `${id}`,
+        })
+    };
+
     componentDidMount() {
         axios({
             method: 'get',
@@ -25,20 +43,17 @@ class TodoList extends React.Component {
                         <Todo
                             onDeleteClick={() => {
                                 this.props.onDeleteClick(todo.id);
-                                deleteTodoDatabase(todo.id)
+                                this.deleteTodoDatabase(todo.id)
                             }}
 
                             onEditClick = {() => {
                                 let text = prompt('Change text', todo.element);
-                                // console.log(text.trim());
                                 if(text !== null) {
                                     if(text.trim() !== '') {
-                                        this.props.onEditClick(todo.id, todo.element);
-                                        editTodoDatabase(todo.id, text)
+                                        this.props.onEditClick(todo.id, text);
+                                        this.editTodoDatabase(todo.id, text)
                                     }
                                 }
-                                // (text.trim() === '') ? this.props.onEditClick(todo.id, todo.element) : this.props.onEditClick(todo.id,text);
-                                // this.props.onEditClick(todo.id,text);
                             }}
 
                             key={todo.id} {...todo}/>
@@ -50,23 +65,9 @@ class TodoList extends React.Component {
 
 }
 
-function deleteTodoDatabase (id)  {
-    axios({
-        method: 'delete',
-        url: 'http://localhost:8000/delete-todo/' + `${id}`,
-    })
-}
 
-function editTodoDatabase(id, text) {
-    axios({
-        method: 'put',
-        url: 'http://localhost:8000/edit',
-        data: {
-            id: id,
-            element: text
-        }
-    })
-};
+
+
 
 // TodoList.propTypes = {
 //     todos: PropTypes.arrayOf(
