@@ -4,6 +4,7 @@ import TodoList from '../components/TodoList'
 import {deleteTodo} from "../actions/index";
 import {editTodo} from "../actions/index";
 import {addToStore} from "../actions/index";
+import {getDataFromDatabase} from "../actions/index";
 
 const getVisibleTodos = (todos) => {
     return todos;
@@ -11,14 +12,15 @@ const getVisibleTodos = (todos) => {
 
 const mapStateToProps = state => {
     return {
-        todos: getVisibleTodos(state.todos)
+        todos: getVisibleTodos(state.todos, state.dataReducer)
     }
 };
 
 const mapDispatchToProps = {
     onDeleteClick: deleteTodo,
     onEditClick: editTodo,
-    addToStore: addToStore
+    addToStore: addToStore,
+    getDataFromDatabase: getDataFromDatabase 
 };
 
 

@@ -1,20 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
-import axios from 'axios';
+import {addIntoDatabase} from '../crud'
+// import axios from 'axios';
 
 let AddTodo = ({ dispatch }) => {
     let input;
-
-    function addIntoDatabase() {
-        axios({
-            method: 'POST',
-            url: 'http://localhost:8000/add-todo',
-            data: {
-                element: input.value
-            }
-        })
-    }
 
     return (
         <div className="add-todo">
@@ -25,7 +16,7 @@ let AddTodo = ({ dispatch }) => {
                         return
                     }
                     dispatch(addTodo(input.value));
-                    addIntoDatabase();
+                    addIntoDatabase(input.value);
                     input.value = ''
                 }}
             >
