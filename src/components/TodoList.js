@@ -1,25 +1,16 @@
 import React from 'react'
 import Todo from './Todo'
-import axios from 'axios'
 import '../css/index.css'
+import axios from 'axios'
 import {editTodoDatabase, deleteTodoDatabase} from "../crud";
 
 class TodoList extends React.Component {
+
     componentWillMount() {
-        this.props.getDataFromDatabase();
+        console.log(this.props.getDataFromDatabase.bind(this));
+        return this.props.getDataFromDatabase();
     }
 
-    // componentWillReceiveProps() {
-    //     axios({
-    //         method: 'get',
-    //         url: 'http://localhost:8000'
-    //     })
-    //         .then(res => {
-    //             console.log(res);
-    //             return res.data
-    //         })
-    //         .then(data => this.props.addToStore(data))
-    // }
 
     render() {
         return(

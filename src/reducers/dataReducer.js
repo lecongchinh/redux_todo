@@ -1,5 +1,5 @@
 const initialState = {
-  data: [],
+  element: [],
   dataFetched: false,
   isFetching: false,
   error: false
@@ -8,20 +8,20 @@ const initialState = {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_DATA':
-      return {
+        return {
         ...state,
-        data: [],
+        element: [],
         isFetching: true
       };
     case 'GET_DATA_SUCCESS':
-      return {
-        ...state,
-        isFetching: false,
-        data: action.data
-      };
+        // console.log(action.data);
+        return {
+            isFetching: false,
+            element: action.data
+        };
     case 'GET_DATA_FAILURE':
-      return {
-        ...state,
+        console.log(1234);
+        return {
         isFetching: false,
         error: true
       };

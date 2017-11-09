@@ -42,40 +42,41 @@ export const addToStore = (data) => {
 //     }
 // }
 
-const GET_DATA = 'GET_DATA';
-const GET_DATA_FAIL='GET_DATA_FAIL';
-const GET_DATA_SUCCESS='GET_DATA_SUCCESS';
+// const GET_DATA = 'GET_DATA';
+// const GET_DATA_FAIL='GET_DATA_FAIL';
+// const GET_DATA_SUCCESS='GET_DATA_SUCCESS';
 
 
-export function getData() {
+export const getData = () => {
     return {
-        type: GET_DATA
+        type: 'GET_DATA'
     }
-} 
+};
 
-export function getDataSuccess(data) {
+export const getDataSuccess = (data) => {
     return {
-        type: GET_DATA_SUCCESS,
+        type: 'GET_DATA_SUCCESS',
         data
     }
-}
+};
 
-export function getDataFail (err) {
+export const getDataFail = () => {
     return {
-        type: GET_DATA_FAIL,
-        err
+        type: 'GET_DATA_FAIL'
     }
-}
+};
 
 export const getDataFromDatabase = () => {
-    return (dispatch) => {
+    return dispatch => {
         dispatch(getData());
         axios.get('http://localhost:8000')
+            // .then(res => res.data)
             .then((data) => {
-                dispatch(getDataSuccess(data))
+                dispatch(getDataSuccess(data.data))
             })
             .catch((err) => {
                 dispatch(getDataFail(err))
+                // console.log('err: ', err);
             })
     }
 };

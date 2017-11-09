@@ -20,7 +20,7 @@ const mapDispatchToProps = {
     onDeleteClick: deleteTodo,
     onEditClick: editTodo,
     addToStore: addToStore,
-    getDataFromDatabase: getDataFromDatabase 
+    getDataFromDatabase: getDataFromDatabase
 };
 
 
