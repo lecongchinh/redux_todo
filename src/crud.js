@@ -15,7 +15,7 @@ export const editTodoDatabase = (id, text) => {
 export const deleteTodoDatabase = (id) => {
     axios({
         method: 'delete',
-        url: 'http://localhost:8000/delete-todo/' + `${id}`,
+        url: `http://localhost:8000/delete-todo/${id}`
     })
 };
 

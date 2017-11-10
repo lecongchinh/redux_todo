@@ -32,37 +32,25 @@ export const addToStore = (data) => {
     }
 };
 
-// export const getDataFromDatabase = () => {
-//     const req = axios.get('http://localhost:8000');
-
-//     return (dispatch) => {
-//         req.then(({data}) => {
-//             dispatch({type: 'FETCH_PROFILE', payload: data})
-//         })
-//     }
-// }
-
-// const GET_DATA = 'GET_DATA';
-// const GET_DATA_FAIL='GET_DATA_FAIL';
-// const GET_DATA_SUCCESS='GET_DATA_SUCCESS';
-
-
-export const getData = () => {
+export const getData = (text) => {
     return {
-        type: 'GET_DATA'
+        type: 'GET_DATA',
+        text
     }
 };
 
-export const getDataSuccess = (data) => {
+export const getDataSuccess = (data, text) => {
     return {
         type: 'GET_DATA_SUCCESS',
-        data
+        data,
+        text
     }
 };
 
-export const getDataFail = () => {
+export const getDataFail = (text) => {
     return {
-        type: 'GET_DATA_FAIL'
+        type: 'GET_DATA_FAIL',
+        text
     }
 };
 
@@ -70,58 +58,12 @@ export const getDataFromDatabase = () => {
     return dispatch => {
         dispatch(getData());
         axios.get('http://localhost:8000')
-            // .then(res => res.data)
             .then((data) => {
                 dispatch(getDataSuccess(data.data))
             })
             .catch((err) => {
                 dispatch(getDataFail(err))
-                // console.log('err: ', err);
             })
     }
 };
 
-// export function getDataFromDatabase(dispatch) {
-//     return getData().then(
-//         data => dispatch(getDataSuccess('data load success', data)),
-//         err => dispatch(getDataFail("fail load data", err))
-//     )
-// }
-
-
-// export const componentDidMount = () => {
-//     axios({
-//         method: 'get',
-//         url: 'http://localhost:8000'
-//     })
-//         .then(res => {
-//             console.log(res);
-//             return res.data
-//         })
-//         .then((data) => this.props.addToStore(data))
-// }
-
-// export const deleteTodoDatabase = (id) => {
-//     axios({
-//         method: 'delete',
-//         url: 'http://localhost:8000/delete-todo/' + `${id}`,
-//     })
-// };
-
-// export const editTodoDatabase = (id, text) => {
-//     const edit = axios({
-//         method: 'put',
-//         url: 'http://localhost:8000/edit',
-//         data: {
-//             id: id,
-//             element: text
-//         }
-//     })
-
-//     return (dispatch) => {
-//         edit.then(({data}) => {
-//             dispatch
-//         })
-//     }
-
-// };

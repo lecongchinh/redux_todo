@@ -1,5 +1,9 @@
 const todos = (state = [], action) => {
     switch (action.type) {
+
+        case "GET_DATA_SUCCESS":
+            return action.data;
+
         case 'ADD_TODO':
             console.log(action);
             return [
@@ -17,9 +21,6 @@ const todos = (state = [], action) => {
             console.log(action);
             return state.map((todo) => (todo.id === action.id) ? {...todo, element: action.text} : todo);
 
-        case 'ADD_TO_STORE':
-            console.log(action.data);
-            return action.data;
         default:
             return state
     }

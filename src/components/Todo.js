@@ -14,8 +14,5 @@ const Todo = ({onDeleteClick, onEditClick, element }) => (
     </div>
 );
 
-// Todo.propTypes = {
-//     element: PropTypes.string.isRequired
-// };
 
 export default Todo

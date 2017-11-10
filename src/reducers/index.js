@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import todos from './todos'
-import dataReducer from './dataReducer'
+import todoReducers from './todoReducers'
 
 const todoApp = combineReducers({
-    todos,
-    dataReducer
+    todos, 
+    todoReducers
 });
 
 export default todoApp
